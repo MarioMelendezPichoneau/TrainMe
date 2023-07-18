@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Hl1NnkbQ3loCpBqCaCYRz3DMX/4/10hSwwvfDkRBrq7c0mprhacOO8Ba13WMPRKk7JU1NuySjMCrdSO379tRsg==",
+  "dgSpecHash": "Ca5cG2EAU1er4jxRZPlTf+/s041VCNh74AXQdaS0LGEzNIwjeMGC7+Oiu/v2j4sQ/apYzXhXGjkHUfY+SZDUeg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LATITUDE E5440\\Desktop\\Recursos\\TrainMe\\TrainMe\\backend\\APIsTrainME\\APIsTrainME.csproj",
+  "projectFilePath": "C:\\Users\\LATITUDE E5440\\Desktop\\Recursos\\TrainMe\\TrainMe\\backend\\APIsTrainME.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LATITUDE E5440\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
     "C:\\Users\\LATITUDE E5440\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

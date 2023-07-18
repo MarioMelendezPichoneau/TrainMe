@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LATITUDE E5440\\Desktop\\Recursos\\TrainMe\\TrainMe\\backend\\APIsTrainME\\APIsTrainME.csproj": {}
+    "C:\\Users\\LATITUDE E5440\\Desktop\\Recursos\\TrainMe\\TrainMe\\backend\\APIsTrainME.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LATITUDE E5440\\Desktop\\Recursos\\TrainMe\\TrainMe\\backend\\APIsTrainME\\APIsTrainME.csproj": {
+    "C:\\Users\\LATITUDE E5440\\Desktop\\Recursos\\TrainMe\\TrainMe\\backend\\APIsTrainME.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LATITUDE E5440\\Desktop\\Recursos\\TrainMe\\TrainMe\\backend\\APIsTrainME\\APIsTrainME.csproj",
+        "projectUniqueName": "C:\\Users\\LATITUDE E5440\\Desktop\\Recursos\\TrainMe\\TrainMe\\backend\\APIsTrainME.csproj",
         "projectName": "APIsTrainME",
-        "projectPath": "C:\\Users\\LATITUDE E5440\\Desktop\\Recursos\\TrainMe\\TrainMe\\backend\\APIsTrainME\\APIsTrainME.csproj",
+        "projectPath": "C:\\Users\\LATITUDE E5440\\Desktop\\Recursos\\TrainMe\\TrainMe\\backend\\APIsTrainME.csproj",
         "packagesPath": "C:\\Users\\LATITUDE E5440\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LATITUDE E5440\\Desktop\\Recursos\\TrainMe\\TrainMe\\backend\\APIsTrainME\\obj\\",
+        "outputPath": "C:\\Users\\LATITUDE E5440\\Desktop\\Recursos\\TrainMe\\TrainMe\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
