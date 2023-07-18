@@ -2,6 +2,7 @@
 using APIsTrainME.Models.ModelService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace APIsTrainME.Controllers
 {
@@ -17,8 +18,8 @@ namespace APIsTrainME.Controllers
                 UserId = 1,
                 Name = "Test",
                 Email = "tes1@gmail.com",
-                Password = "123",
-                TrainerId = 1
+                Password = "123"
+                
                 
             }, 
             new Usuario
@@ -37,21 +38,62 @@ namespace APIsTrainME.Controllers
                 TrainerId = 1,
                 Name = "Trainer1",
                 Edad = 35,
+                Experiencia = 35,
                 Especialidad = "skdhhadhass",
                 Descripcion = "123",
-                Certificaciones = "pesas"
+                Calificacion = 5
+
 
             },
             new Trainer
             {
                 TrainerId = 2,
-                Name = "Trainer1",
+                Name = "Trainer2",
                 Edad = 35,
+                Experiencia = 10,
                 Especialidad = "skdhhadhass",
                 Descripcion = "123",
-                Certificaciones = "pesas"
+                Calificacion = 5
             }
         };
+        public static List<RecervarSesion> agendar = new List<RecervarSesion>
+        {
+
+            
+        };
+
+
+        [HttpPost("Agerdar")]
+
+        public async Task<ActionResult<List<RecervarSesion>>> Agendar(Agendar ag)
+        {
+            var user = usuarios.Find(u => u.UserId == ag.UserId);
+            var trainer = trainers.Find(u => u.TrainerId == ag.TrainerId);
+
+            if(user == null & trainer == null)
+            {
+                return BadRequest("users not faund");
+            }
+
+
+            agendar.Add(new RecervarSesion
+            {
+                Id = ag.Id,
+                Date = ag.Date,
+                Location = ag.Location,
+                TipoEntrenamiento = ag.TipoEntrenamiento,
+                Trainer = trainer,
+                User = user
+
+
+
+            });
+
+
+
+
+            return Ok(agendar);
+        }
 
         // GET: api/trainme
         [HttpGet("Welcome")]
@@ -68,14 +110,14 @@ namespace APIsTrainME.Controllers
         }
 
 
-        // -------------------------------------method to find a trainer by id--------------------------------------------------- 
+        // -------------------------------------method to find a trainer by name--------------------------------------------------- 
 
         [HttpGet("Buscar")]
         public async Task<ActionResult<List<Trainer>>> Get(string userSh)
         {
             var user = usuarios.Find(h => h.Name == userSh);
 
-            //var hero = await _context.SuperHeroes.FindAsync(id);
+            //var trainer = await _context.SuperHeroes.FindAsync(userSh);
             if (user == null)
             {
                 return BadRequest($"Usuario no encontrado {userSh}");
@@ -87,7 +129,7 @@ namespace APIsTrainME.Controllers
         // -----------------------------------------------method to add usuario-----------------------------------------------------------/
 
         [HttpPost]
-        public async Task<ActionResult<List<Usuario>>> AddHero(Usuario hero)
+        public async Task<ActionResult<List<Usuario>>> AddUser(Usuario hero)
         {
             usuarios.Add(hero);
 
