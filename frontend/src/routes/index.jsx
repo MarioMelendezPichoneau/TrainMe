@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage } from "../components/pages/HomePage";
 import { LoginPage } from "../components/pages/LoginPage";
 import { SingupPage } from "../components/pages/SingupPage";
-import { TrainerSearchPage } from "../components/pages/TrainerSearchPage";
+import { TrainersPage } from "../components/pages/TrainersPage";
 
 const AppRouter = () => {
   return (
@@ -11,7 +11,7 @@ const AppRouter = () => {
         <Route index path="/" Component={HomePage} />
         <Route path="/login" Component={LoginPage} />
         <Route path="/register" Component={SingupPage} />
-        <Route path="/trainers" Component={TrainerSearchPage} />
+        <Route path="/trainers" Component={TrainersPage} />
       </Routes>
     </BrowserRouter>
   );
