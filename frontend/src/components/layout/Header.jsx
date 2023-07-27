@@ -50,6 +50,7 @@ const products = [
     icon: ArrowPathIcon,
   },
 ];
+
 const callsToAction = [
   { name: "Watch demo", href: "#", icon: PlayCircleIcon },
   { name: "Contact sales", href: "#", icon: PhoneIcon },
@@ -148,18 +149,18 @@ export const Header = () => {
               </Transition>
             </Popover>
 
-            <a
-              href="#"
+            <Link
+              to="/trainers"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Entrenadores
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to=""
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Rutinas
-            </a>
+            </Link>
             <a
               href="#"
               className="text-sm font-semibold leading-6 text-gray-900"

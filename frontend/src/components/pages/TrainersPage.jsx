@@ -1,3 +1,7 @@
 export const TrainersPage = () => {
-  return <div>Trainers Page</div>;
+  return (
+    <>
+      <div>Trainers Page</div>
+    </>
+  );
 };

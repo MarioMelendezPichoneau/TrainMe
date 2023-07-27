@@ -5,7 +5,7 @@ export const ContentHomePage = () => {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div className="relative col-span-1">
             <h1 className="text-2xl font-bold text-black sm:text-6xl lg:text-7xl">
-              Cambia tu cuerpo, transforma tu vida, elige{" "}
+              Cambia tu cuerpo, transforma tu vida, elige
               <div className="relative inline-flex">
                 <span className="absolute inset-x-0 bottom-0 border-b-[30px] border-[#77b2ec]"></span>
                 <h1 className="relative text-4xl font-bold text-black sm:text-6xl lg:text-7xl">
