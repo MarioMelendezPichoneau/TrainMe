@@ -81,7 +81,7 @@ namespace APIsTrainME.Migrations
                     b.Property<int>("Experiencia")
                         .HasColumnType("int");
 
-                    b.Property<string>("Image")
+                    b.Property<string>("Foto")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

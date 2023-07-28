@@ -22,16 +22,16 @@ namespace APIsTrainME.Controllers
         [HttpPost("AddTrainer")]
         public async Task<ActionResult<List<Trainer>>> AddTrainer(Trainer trainer)
         {
-            var result = _trainMeService.AddTrainer(trainer);
+            var result = await _trainMeService.AddTrainer(trainer); 
             return Ok(result);
         }
 
         [HttpPut("UpdateTrainer")]
         public async Task<ActionResult<List<Trainer>>> UpdateTrainer(Trainer trainer)
         {
-            var user = _trainMeService.UpdateTrainer(trainer);
+            var user = await _trainMeService.UpdateTrainer(trainer);
 
-            if(user is null)
+            if (user is null)
             {
                 return NotFound($"Entrenador {trainer.Name} No fue encontrado");
             }
@@ -41,19 +41,19 @@ namespace APIsTrainME.Controllers
             return Ok(user);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("id")]
         public async Task<ActionResult<List<Trainer>>> DeleteTrainer(int trainerId)
         {
-            var user = _trainMeService.DeleteTrainer(trainerId);
+            var user = await _trainMeService.DeleteTrainer(trainerId);
 
-            if(user is null)
+            if (user is null)
             {
-                return NotFound($"Usuario no encontrado");
+                return NotFound($"Entrenador con ID {trainerId} no encontrado");
             }
 
-
-            return Ok($"Usuario {user} Borrado");
+            return Ok($"Entrenador con ID {trainerId} borrado");
         }
+
 
     }
 }

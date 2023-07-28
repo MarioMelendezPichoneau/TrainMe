@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using Azure.Core;
+using Microsoft.AspNetCore.Http.HttpResults;
 using System.Globalization;
 
 namespace APIsTrainME.Models.ModelService
@@ -6,31 +7,31 @@ namespace APIsTrainME.Models.ModelService
     public class TrainMeService : ITrainMeService
     {
 
-        public static List<Trainer> trainers = new List<Trainer>
-        {
-            new Trainer
-            {
-                TrainerId = 1,
-                Name = "Luca",
-                Edad = 35,
-                Experiencia = 10,
-                Especialidad = "skdhhadhass",
-                Descripcion = "123",
-                Calificacion = 5
+        //public static List<Trainer> trainers = new List<Trainer>
+        //{
+        //    new Trainer
+        //    {
+        //        TrainerId = 1,
+        //        Name = "Luca",
+        //        Edad = 35,
+        //        Experiencia = 10,
+        //        Especialidad = "skdhhadhass",
+        //        Descripcion = "123",
+        //        Calificacion = 5
 
 
-            },
-            new Trainer
-            {
-                TrainerId = 2,
-                Name = "Trainer1",
-                Edad = 35,
-                Experiencia = 10,
-                Especialidad = "skdhhadhass",
-                Descripcion = "123",
-                Calificacion = 5
-            }
-        };
+        //    },
+        //    new Trainer
+        //    {
+        //        TrainerId = 2,
+        //        Name = "Trainer1",
+        //        Edad = 35,
+        //        Experiencia = 10,
+        //        Especialidad = "skdhhadhass",
+        //        Descripcion = "123",
+        //        Calificacion = 5
+        //    }
+        //};
 
         private readonly DataContext _context;
 
@@ -39,8 +40,15 @@ namespace APIsTrainME.Models.ModelService
             _context = dataContext;
         }
 
-        public async Task<List<Trainer>> AddTrainer(Trainer trainer)
+        public async Task<List<Trainer>?> AddTrainer(Trainer trainer)
         {
+            // Asignar una foto predeterminada si no se proporcionó ninguna foto en el objeto Trainer
+            if (string.IsNullOrEmpty(trainer.Foto))
+            {
+                // Aquí puedes establecer la URL de una foto predeterminada o cualquier otro valor por defecto
+                trainer.Foto = "https://th.bing.com/th/id/R.97257fc69dc1e776b3e633d25f1c0e80?rik=tfK05WsXLoEozw&pid=ImgRaw&r=0";
+            }
+
             //trainers.Add(trainer);
             _context.Trainers.Add(trainer);
 
@@ -91,9 +99,7 @@ namespace APIsTrainME.Models.ModelService
             var user = await _context.Trainers.FindAsync(trainerId);
 
             if (user is null)
-            {
                 return null;
-            }
 
             _context.Trainers.Remove(user);
             await _context.SaveChangesAsync();
@@ -101,24 +107,22 @@ namespace APIsTrainME.Models.ModelService
             return await _context.Trainers.ToListAsync();
         }
 
-        public async Task<List<Usuario>?> DeleteUsers(int id)
+        public async Task<List<Usuario>> DeleteUsers(int id)
         {
-            var user = await _context.Trainers.FindAsync(id);
+            var user = await _context.Usuarios.FindAsync(id);
 
             if (user is null)
-            {
                 return null;
-            }
 
-            _context.Trainers.Remove(user);
+            _context.Usuarios.Remove(user);
             await _context.SaveChangesAsync();
 
             return await _context.Usuarios.ToListAsync();
         }
 
-        public async Task<Usuario> Get(string userSh)
+        public async Task<Trainer> Get(string userSh)
         {
-            var user = await _context.Usuarios.FindAsync(userSh);
+            var user = await _context.Trainers.FirstOrDefaultAsync(u => u.Name == userSh);
 
             if (user == null)
             {
@@ -128,9 +132,9 @@ namespace APIsTrainME.Models.ModelService
             return user;
         }
 
-        public async Task<Usuario?> Getagendar(int id)
+        public async Task<RecervarSesion?> Getagendar(int id)
         {
-            var user = await _context.Usuarios.FindAsync(id);
+            var user = await _context.RecervarSesions.FindAsync(id);
             if (user is null)
                 return null;
 
@@ -153,9 +157,20 @@ namespace APIsTrainME.Models.ModelService
             return user;
         }
 
-        public Task<List<Usuario>?> UpdateHero(Usuario request)
+        public async Task<List<Usuario>?> UpdateUsuario(Usuario request)
         {
-            throw new NotImplementedException();
+            var user = await _context.Usuarios.FirstOrDefaultAsync(t => t.UserId == request.UserId);
+            if (user is null)
+                return null;
+
+            user.Name = request.Name;
+            user.Email = request.Email;
+            user.Password = request.Password;
+
+            await _context.SaveChangesAsync();
+            
+            return new List<Usuario> { user };
+
         }
 
 
@@ -163,31 +178,26 @@ namespace APIsTrainME.Models.ModelService
         {
             var user = await _context.Trainers.FirstOrDefaultAsync(t => t.TrainerId == trainer.TrainerId);
 
-            if (user != null)
+            if (user == null)
             {
                 return null;
             }
 
             user.Name = trainer.Name;
-            user.Image = trainer.Image;
+            user.Foto = trainer.Foto;
             user.Edad = trainer.Edad;
             user.Experiencia = trainer.Experiencia;
             user.Especialidad = trainer.Especialidad;
             user.Descripcion = trainer.Descripcion;
             user.Calificacion = trainer.Calificacion;
 
-            return trainers;
+            await _context.SaveChangesAsync();
+
+            return await _context.Trainers.ToListAsync();
         }
 
-        List<Trainer> ITrainMeService.AddTrainer(Trainer trainer)
-        {
-            throw new NotImplementedException();
-        }
 
-        List<Trainer> ITrainMeService.DeleteTrainer(int trainerId)
-        {
-            throw new NotImplementedException();
-        }
+
 
        
     }

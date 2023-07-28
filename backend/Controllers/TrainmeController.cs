@@ -56,12 +56,7 @@ namespace APIsTrainME.Controllers
                 Calificacion = 5
             }
         };
-        public static List<RecervarSesion> agendar = new List<RecervarSesion>
-        {
-
-            
-        };
-
+        
         public readonly ITrainMeService _trainMeService;
 
         public TrainmeController(ITrainMeService trainMeService)
@@ -79,10 +74,12 @@ namespace APIsTrainME.Controllers
 
             var agendar = await _trainMeService.Agendar(ag);
 
-            if(agendar is null)
+            if (agendar is null)
             {
-                return BadRequest("agenda not faund");
+                return BadRequest("Agenda no encontrada");
             }
+
+            return Ok(agendar);
 
 
             //agendar.Add(new RecervarSesion
@@ -101,11 +98,11 @@ namespace APIsTrainME.Controllers
 
 
 
-            return Ok(agendar);
+            //return Ok(agendar);
         }
 
 
-        [HttpDelete("verAgenda")]
+        [HttpGet("verAgenda/{id}")]
         public async Task<ActionResult<List<Usuario>>> Getagendar(int id)
         {
             //var agenda = usuarios.Find(h => h.UserId == id);
@@ -140,7 +137,7 @@ namespace APIsTrainME.Controllers
 
         // -------------------------------------method to find a trainer by name--------------------------------------------------- 
 
-        [HttpGet("Buscar")]
+        [HttpGet("BuscarTrainer")]
         public async Task<ActionResult<List<Trainer>>> Get(string userSh)
         {
 
@@ -206,12 +203,12 @@ namespace APIsTrainME.Controllers
 
         // method to update user 
 
-        [HttpPut]
-        public async Task<ActionResult<List<Usuario>>> UpdateHero(Usuario request)
+        [HttpPut("UpdateUsuario")]
+        public async Task<ActionResult<List<Usuario>>> UpdateUauario(Usuario request)
         {
             //var user = usuarios.Find(h => h.UserId == request.UserId);
 
-            var user = await _trainMeService.UpdateHero(request);
+            var user = await _trainMeService.UpdateUsuario(request);
             if (user is null)
             {
                 return BadRequest("Usuario not find");
@@ -235,12 +232,10 @@ namespace APIsTrainME.Controllers
             var hero = await _trainMeService.DeleteUsers(id);
             if (hero is null)
             {
-                return BadRequest("Hero not find");
+                return BadRequest("Usuario no encontrado");
             }
 
-           
-
-            return Ok(usuarios);
+            return Ok(hero);
 
             //_context.SuperHeroes.Remove(hero);
 
