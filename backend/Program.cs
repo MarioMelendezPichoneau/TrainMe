@@ -1,5 +1,7 @@
 global using APIsTrainME.Data;
 using APIsTrainME.Models.ModelService;
+using Microsoft.AspNetCore.HttpOverrides;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,14 +16,9 @@ builder.Services.AddDbContext<DataContext>(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//builder.Services.ConfigureSwaggerGen(setup =>
-//{
-//    setup.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
-//    {
-//        Title = "TrainMeApi",
-//        Version = "v1"
-//    });
-//});
+
+
+
 
 var app = builder.Build();
 
@@ -30,7 +27,9 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    
 }
+
 
 app.UseHttpsRedirection();
 
