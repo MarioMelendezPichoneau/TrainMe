@@ -11,7 +11,7 @@ import { DietHomePage } from "../Home/DietHomePage";
 export const HomePage = () => {
   return (
     <>
-      <Announcement />
+      {/* <Announcement /> */}
       <Header />
       <ContentHomePage />
       <InfoHomePage />

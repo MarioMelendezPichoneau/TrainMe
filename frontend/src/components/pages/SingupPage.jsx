@@ -1,6 +1,21 @@
 import { Logo } from "../common/Logo";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export const SingupPage = () => {
+  const { register } = useContext(AuthContext);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = Object.fromEntries(new window.FormData(e.target));
+
+    try {
+      await register(formData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -24,7 +39,11 @@ export const SingupPage = () => {
               Entrena tu cuerpo, entrena tu mente, ¡entrena con TrainMe!
             </p>
 
-            <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+            <form
+              action="#"
+              className="mt-8 grid grid-cols-6 gap-6"
+              onSubmit={handleSubmit}
+            >
               <div className="col-span-6 sm:col-span-3">
                 <label
                   htmlFor="FirstName"
@@ -36,6 +55,7 @@ export const SingupPage = () => {
                 <input
                   type="text"
                   id="FirstName"
+                  name="firstName"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Ingrese su nombre"
                 />
@@ -50,6 +70,7 @@ export const SingupPage = () => {
                 <input
                   type="text"
                   id="FirstName"
+                  name="lastName"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Ingrese su apellido"
                 />
@@ -65,6 +86,7 @@ export const SingupPage = () => {
                 <input
                   type="email"
                   id="FirstName"
+                  name="email"
                   className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                   placeholder="trainme@gmail.com"
                 />
@@ -87,26 +109,6 @@ export const SingupPage = () => {
                 />
               </div>
 
-              <div className="col-span-6 sm:col-span-3">
-                <label
-                  htmlFor="PasswordConfirmation"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Confirmar contraseña
-                </label>
-
-                <input
-                  type="password"
-                  id="Password"
-                  name="password"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  placeholder="Ingrese su contraseña"
-                />
-              </div>
-              <br />
-              <br />
-              <br />
-              <br />
               <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
                 <button className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
                   Crear cuenta
