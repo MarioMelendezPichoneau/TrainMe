@@ -1,6 +1,27 @@
+import { Link } from "react-router-dom";
 import { Logo } from "../common/Logo";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { AlertError } from "../common/AlertError";
+import { AlertSuccess } from "../common/AlertSuccess";
 
 export const LoginPage = () => {
+  const { login, error, success, handleError, handleSuccess } =
+    useContext(AuthContext);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = Object.fromEntries(new window.FormData(e.target));
+
+    try {
+      await login(formData);
+      handleSuccess("¡Inicio de sesión exitoso!");
+    } catch (error) {
+      console.log(error);
+      handleError("Credenciales incorrectas. Intente nuevamente.");
+    }
+  };
+
   return (
     <section className="bg-white h-screen ">
       <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
@@ -57,8 +78,7 @@ export const LoginPage = () => {
                     </svg>
                   </div>
                   <span className="text-lg font-medium text-white">
-                    {" "}
-                    Seguimiento de la dieta y nutrición{" "}
+                    Seguimiento de la dieta y nutrición
                   </span>
                 </li>
                 <li className="flex items-center space-x-3">
@@ -98,7 +118,7 @@ export const LoginPage = () => {
                   </div>
                   <span className="text-lg font-medium text-white">
                     {" "}
-                    Biblioteca de ejercicios y rutinas{" "}
+                    Biblioteca de ejercicios y rutinas
                   </span>
                 </li>
               </ul>
@@ -112,25 +132,29 @@ export const LoginPage = () => {
               Iniciar sesion
             </h2>
             <p className="mt-2 text-base text-gray-600">
-              No tienes una cuenta ?{" "}
-              <a
-                href="#"
+              No tienes una cuenta ?
+              <Link
+                to="/singUp"
                 title=""
                 className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline"
               >
                 Crea una cuenta nueva
-              </a>
+              </Link>
             </p>
 
-            <form action="#" method="POST" className="mt-8">
+            <form
+              action="#"
+              method="POST"
+              className="mt-8"
+              onSubmit={handleSubmit}
+            >
               <div className="space-y-5">
                 <div>
                   <label
                     htmlFor=""
                     className="text-base font-medium text-gray-900"
                   >
-                    {" "}
-                    Email{" "}
+                    Email
                   </label>
                   <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -152,7 +176,7 @@ export const LoginPage = () => {
 
                     <input
                       type="email"
-                      name=""
+                      name="email"
                       id=""
                       placeholder="Ingrese su email"
                       className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
@@ -166,8 +190,7 @@ export const LoginPage = () => {
                       htmlFor=""
                       className="text-base font-medium text-gray-900"
                     >
-                      {" "}
-                      Contraseña{" "}
+                      Contraseña
                     </label>
                   </div>
                   <div className="mt-2.5 relative text-gray-400 focus-within:text-gray-600">
@@ -196,7 +219,7 @@ export const LoginPage = () => {
 
                     <input
                       type="password"
-                      name=""
+                      name="password"
                       id=""
                       placeholder="Ingrese su contraseña"
                       className="block w-full py-4 pl-10 pr-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
@@ -210,6 +233,25 @@ export const LoginPage = () => {
                     className="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 border border-transparent rounded-md bg-gradient-to-r from-fuchsia-600 to-blue-600 focus:outline-none hover:opacity-80 focus:opacity-80"
                   >
                     Iniciar sesion
+                  </button>
+                </div>
+
+                <div class="mt-3 space-y-3">
+                  <button
+                    type="button"
+                    class="relative inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-gray-700 transition-all duration-200 bg-white border-2 border-gray-200 rounded-md hover:bg-gray-100 focus:bg-gray-100 hover:text-black focus:text-black focus:outline-none"
+                  >
+                    <div class="absolute inset-y-0 left-0 p-4">
+                      <svg
+                        class="w-6 h-6 text-rose-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"></path>
+                      </svg>
+                    </div>
+                    Iniciar con Google
                   </button>
                 </div>
               </div>
