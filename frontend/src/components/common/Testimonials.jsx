@@ -4,8 +4,7 @@ export const Testimonials = () => {
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold leading-tight text-gray-800 sm:text-4xl lg:text-5xl">
-            Trusted by <span className="text-blue-600">30k+</span> world
-            className companies & design teams
+            Mas de <span className="text-blue-600">30k+</span> Testimonios Reales de Nuestros Clientes Satisfechos.
           </h2>
         </div>
 
@@ -30,16 +29,18 @@ export const Testimonials = () => {
               </div>
               <blockquote className="mt-7">
                 <p className="text-lg text-black">
-                  “Amet minim mollit non deserunt ullam co est sit aliqua dolor
-                  do amet sint. Velit officia consequat duis enim velit mollit.
-                  Exercitation veniam consequat”
+                  "Gracias a TrainMe, finalmente he encontrado el equilibrio que buscaba 
+                  en mi vida. Los programas personalizados y el apoyo constante de mi 
+                  entrenador me ayudaron a perder peso, ganar confianza y mejorar mi 
+                  bienestar general. Cada día me siento más fuerte y enérgica. 
+                  ¡TrainMe ha cambiado mi vida por completo!"
                 </p>
               </blockquote>
               <p className="text-base font-semibold tex-tblack mt-9">
                 Jenny Wilson
               </p>
               <p className="mt-1 text-base text-gray-600">
-                Project Manager at Microsoft
+                Project Manager de Microsoft
               </p>
             </div>
           </div>
@@ -65,16 +66,18 @@ export const Testimonials = () => {
               </div>
               <blockquote className="mt-7">
                 <p className="text-lg text-black">
-                  “Amet minim mollit non deserunt ullam co est sit aliqua dolor
-                  do amet sint. Velit officia consequat duis enim velit mollit.
-                  Exercitation veniam consequat”
+                "Estoy impresionado con los resultados que he obtenido con TrainMe. 
+                Nunca pensé que podría alcanzar mi objetivo de ganar masa muscular, 
+                pero mi entrenador me guió paso a paso y me dio la motivación necesaria 
+                para lograrlo. Me siento más fuerte y seguro que nunca. ¡Gracias, TrainMe, 
+                por hacerme creer en mí mismo!"
                 </p>
               </blockquote>
               <p className="text-base font-semibold tex-tblack mt-9">
                 Robert Fox
               </p>
               <p className="mt-1 text-base text-gray-600">
-                Founder at Brain.co
+                Diseñador Grafico
               </p>
             </div>
           </div>
@@ -100,16 +103,18 @@ export const Testimonials = () => {
               </div>
               <blockquote className="mt-7">
                 <p className="text-lg text-black">
-                  “Amet minim mollit non deserunt ullam co est sit aliqua dolor
-                  do amet sint. Velit officia consequat duis enim velit mollit.
-                  Exercitation veniam consequat”
+                  "Desde que me uní a TrainMe, me siento más en control de mi bienestar 
+                  y felicidad. Los programas me retan a mejorar constantemente y mi 
+                  entrenador siempre está allí para apoyarme. Mi salud mental ha mejorado 
+                  significativamente, y me siento emocionada por lo que puedo lograr cada día. 
+                  Gracias, TrainMe, por devolverme la alegría de vivir."
                 </p>
               </blockquote>
               <p className="text-base font-semibold tex-tblack mt-9">
-                Kristin Watson
+                Sofía G.
               </p>
               <p className="mt-1 text-base text-gray-600">
-                UX Designer at Google
+                UX Designer de Google 
               </p>
             </div>
           </div>

@@ -18,7 +18,7 @@ export const HomePage = () => {
       <DietHomePage />
       <Testimonials />
       <BannerHomePage />
-      <BlogsHomePage />
+      
       <Footer />
     </>
   );

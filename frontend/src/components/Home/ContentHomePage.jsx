@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export const ContentHomePage = () => {
   return (
     <section className="py-10 sm:py-16 lg:py-24">
@@ -14,21 +16,24 @@ export const ContentHomePage = () => {
               </div>
             </h1>
 
+
             <p className="mt-8 text-base text-black sm:text-xl">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
-              Exercitation veniam consequat.
+            Bienvenido a TrainMe!, el programa revolucionario que te ayudará a 
+            transformar tu vida y cuerpo de manera eficiente y emocionante. 
+            Con nuestros expertos entrenadores y programas personalizados, 
+            alcanzarás tus metas de acondicionamiento físico y te sentirás más fuerte 
+            y saludable que nunca. ¡Únete a nosotros y comienza tu cambio hoy mismo!
             </p>
 
             <div className="mt-10 sm:flex sm:items-center sm:space-x-8">
-              <a
-                href="#"
+              <Link
+                to="/homePresentation"
                 title=""
                 className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white transition-all duration-200 bg-orange-500 hover:bg-orange-600 focus:bg-orange-600"
                 role="button"
               >
                 Comienza tu cambio!
-              </a>
+              </Link>
             </div>
           </div>
 

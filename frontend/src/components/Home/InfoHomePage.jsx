@@ -4,10 +4,10 @@ export const InfoHomePage = () => {
       <div className="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
         <div className="mx-auto text-left md:max-w-lg lg:max-w-2xl md:text-center">
           <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl lg:leading-tight">
-            I am building a product that can
+            Descubre Nuestros 
             <span className="relative inline-block">
               <span className="absolute inline-block w-full h-2 bg-yellow-300 bottom-1.5"></span>
-              <span className="relative"> solve developer’s pain </span>
+              <span className="relative"> Programas Personalizados </span>
             </span>
           </h2>
         </div>
@@ -16,36 +16,48 @@ export const InfoHomePage = () => {
           <div>
             <img
               className="w-full mx-auto sm:max-w-xs"
-              src="https://cdn.rareblocks.xyz/collection/celebration/images/team/2/business-man.jpg"
+              src="https://th.bing.com/th/id/OIP.pbNyUo0UYm8fbH8hok41DAHaE7?pid=ImgDet&rs=1"
               alt=""
             />
           </div>
 
           <div>
             <h3 className="text-lg font-semibold text-gray-900">
-              Hey! I am John, founder of Celebration.
+              Explora nuestros programas y comienza tu transformación.
             </h3>
             <p className="mt-4 text-lg text-gray-700">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim velit mollit.
-              Exercitation veniam consequat sunt nostrud amet.
+              En TrainMe, entendemos que cada persona es única y tiene objetivos 
+              diferentes. Es por eso que ofrecemos una variedad de programas 
+              personalizados, diseñados para ayudarte a alcanzar tus metas específicas. 
+              Ya sea que desees perder peso, aumentar masa muscular o mejorar tu bienestar 
+              general, tenemos el programa perfecto para ti..
             </p>
-            <p className="mt-4 text-lg text-gray-700">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
+            
+          </div>
+          
+        </div>
 
-            <h3 className="mt-8 text-lg font-semibold text-gray-900">
-              How do I do this without any investment?
+        <div className="grid grid-cols-1 mt-8 md:mt-20 gap-y-6 md:grid-cols-2 gap-x-10">
+        <div>
+            <img
+              className="w-full mx-auto sm:max-w-xs"
+              src="https://www.fitnessmagnet.com/wp-content/uploads/2017/11/10-Ernahrungsregeln-fur-Anfanger.jpg"
+              alt=""
+            />
+            </div>
+        <div>
+          <h3 className="mt-8 text-lg font-semibold text-gray-900">
+              Descubre Nuestros Programas Personalizados para Cada Objetivo.
             </h3>
+            
             <p className="mt-4 text-lg text-gray-700">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
-            </p>
+              En TrainMe, creemos que todos tienen metas únicas y merecen programas 
+              personalizados que se adapten a sus necesidades. Ya sea que busques 
+              perder peso, mejorar tu fuerza o simplemente llevar un estilo de 
+              vida más saludable, nuestros programas están diseñados para que 
+              alcances el éxito. ¡Descubre nuestros programas ahora y comienza a 
+              transformar tu cuerpo y mente!
+            </p> 
           </div>
         </div>
       </div>
