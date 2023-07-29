@@ -55,12 +55,14 @@ const AuthProvider = ({ children }) => {
 
       // Actualizar el estado local con la información del usuario
       setUser(userCredential.user);
+      handleSuccess("¡Registro exitoso!");
 
       navigate("/homePresentation");
     } catch (error) {
       // Manejo de errores, si es necesario
-      console.error("Error al registrar el usuario:", error.message);
-      throw error;
+      console.log("Error al registrar: " + error.message);
+      handleError("Error al registrar. Intente nuevamente.");
+      setSuccess("");
     }
   };
 
@@ -75,11 +77,13 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         localStorage.setItem("user", JSON.stringify(currentUser));
         setUser(currentUser);
+        handleSuccess("¡Inicio de sesión exitoso!");
       }
 
       navigate("/homePresentation");
     } catch (error) {
       console.log("Error al iniciar sesión: " + error.message);
+      handleError("Credenciales incorrectas. Intente nuevamente.");
     }
   };
 
@@ -96,13 +100,13 @@ const AuthProvider = ({ children }) => {
   // Función para manejar errores
   const handleError = (message) => {
     setError(message);
-    setTimeout(() => setError(""), 5000); // Limpia el mensaje después de 5 segundos
+    setTimeout(() => setError(""), 1500); // Limpia el mensaje después de 1.5 segundos
   };
 
   // Función para manejar éxitos
   const handleSuccess = (message) => {
     setSuccess(message);
-    setTimeout(() => setSuccess(""), 5000); // Limpia el mensaje después de 5 segundos
+    setTimeout(() => setSuccess(""), 1000); // Limpia el mensaje después de 1 segundo
   };
 
   useEffect(() => {
@@ -139,6 +143,7 @@ const AuthProvider = ({ children }) => {
         success,
         login,
         logout,
+        register,
         handleError,
         handleSuccess,
       }}
